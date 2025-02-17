@@ -8,7 +8,7 @@ import { FormEvent, useState } from "react"
 import DatePicker from "react-datepicker"
 import { toast, ToastContainer } from "react-toastify"
 import { KeretaType } from "../types"
-import "react-datepicker/dist/react-datepicker.css"
+
 
 type props = {
     trains: KeretaType[]
@@ -172,16 +172,9 @@ const AddSchedule = (myProp: props) => {
                         </div>
                     </div>
                     {/* modal footer */}
-                    <div className="w-full p-3 rounded-b-lg flex items-center justify-end">
-                        <button type="button"
-                            onClick={() => closeModal()}
-                            className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white">
-                            Close
-                        </button>
-                        <button type="submit"
-                            className="px-4 py-2 bg-sky-700 hover:bg-sky-600 text-white">
-                            Save
-                        </button>
+                    <div className="w-full p-4 bg-gray-100 flex items-center justify-end gap-3 rounded-b-xl">
+                        <button type="button" onClick={closeModal} className="px-5 py-2 rounded-lg bg-gray-600 hover:bg-gray-500 text-white shadow-md transition-all">Close</button>
+                        <button type="submit" className="px-5 py-2 rounded-lg bg-sky-700 hover:bg-sky-600 text-white shadow-md transition-all">Save</button>
                     </div>
                 </form>
             </Modal>

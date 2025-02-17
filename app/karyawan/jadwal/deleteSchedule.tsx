@@ -76,15 +76,19 @@ const DeleteSchedule = (myProp: props) => {
                         Apakah anda yakin ingin menghapus data ini?
                     </div>
                     {/* modal footer */}
-                    <div className="w-full p-3 rounded-b-lg flex items-center justify-end">
-                        <button type="button"
-                            onClick={() => closeModal()}
-                            className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white">
+                    <div className="w-full p-3 rounded-b-lg flex items-center justify-end gap-2">
+                        <button
+                            type="button"
+                            onClick={closeModal}
+                            className="px-4 py-2 rounded-md bg-lime-600 hover:bg-lime-400 text-white"
+                        >
                             Batal
                         </button>
-                        <button type="submit"
-                            className="px-4 py-2 bg-sky-700 hover:bg-sky-600 text-white">
-                            Ya, saya yakin
+                        <button
+                            type="submit"
+                            className="px-4 py-2 rounded-md bg-red-600 hover:bg-red-400 text-white"
+                        >
+                            Hapus
                         </button>
                     </div>
                 </form>
