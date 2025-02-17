@@ -1,6 +1,5 @@
 "use client"
 
-import { ScheduleType } from "@/app/karyawan/types"
 import Modal from "@/components/Modal"
 import { axiosInstance } from "@/helper/api"
 import { getCookie } from "@/helper/client-cookie"
@@ -8,6 +7,7 @@ import { useRouter } from "next/navigation"
 import { FormEvent, useState } from "react"
 import DatePicker from "react-datepicker"
 import { toast, ToastContainer } from "react-toastify"
+import { ScheduleType } from "../types"
 
 type props = {
     item: ScheduleType

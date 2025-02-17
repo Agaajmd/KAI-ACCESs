@@ -15,7 +15,7 @@ const FilterJadwal = (myProp: props) => {
 
     const handleSearch = () => {
         if (departured_location !== "" && arrived_location !== "") {
-            router.push(`/pelanggan/jadwal?departured_location=${departured_location}&arrived_location=${arrived_location}`)
+            router.push(`/pelanggan/schedule?departured_location=${departured_location}&arrived_location=${arrived_location}`)
         }
     }
 

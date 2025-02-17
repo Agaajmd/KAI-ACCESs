@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import Modal from "@/components/Modal";
 import { toast, ToastContainer } from "react-toastify"
-import { ScheduleType } from "@/app/karyawan/types";
 import { getCookie } from "@/helper/client-cookie";
 import { axiosInstance } from "@/helper/api";
+import { ScheduleType } from "../types";
 
 type props = {
     schedule: ScheduleType

@@ -1,22 +1,19 @@
+import { KeretaType, ScheduleType } from "../types"
+import { axiosInstance } from "@/helper/api"
+import Schedule from "./Schedule"
 import { getServerCookie } from "@/helper/server-cookie"
 import AddSchedule from "./addSchedule"
-import Schedule from "./Schedule"
-import { KeretaType, ScheduleType } from "@/app/karyawan/types"
-import { axiosInstance } from "@/helper/api"
 
-
-// get data jadwal
+/** get data jadwal */
 const getJadwal = async (): Promise<ScheduleType[]> => {
     try {
         const url = `/schedule`
         const TOKEN = await getServerCookie(`token`)
-        // hit endpoint
-        const response: any = await axiosInstance
-            .get(url, {
-                headers: { Authorization: `Bearer ${TOKEN}` }
-            })
-        if (response.data.success === true)
-            return response.data.data
+        /**hit endpoint */
+        const response: any = await axiosInstance.get(url, {
+            headers: { Authorization: `Bearer ${TOKEN}` }
+        })
+        if (response.data.success === true) return response.data.data
         return []
     } catch (error) {
         console.log(error)
@@ -26,26 +23,26 @@ const getJadwal = async (): Promise<ScheduleType[]> => {
 
 const getKereta = async (): Promise<KeretaType[]> => {
     try {
-        // get topken from cookie
+        /** get token from cookie */
         const TOKEN = await getServerCookie(`token`)
         const url = `/train`
-        // hit endpoint
-        const response: any =
-            await axiosInstance
-                .get(url, {
-                    headers: {
-                        authorization: `Bearer ${TOKEN}`
-                    }
-                })
+        /** hit endpoint */
+        const response: any = await axiosInstance.get(url, {
+            headers: {
+                authorization: `Bearer ${TOKEN}`
+            }
+        })
+
         if (response.data.success == true) {
             return response.data.data
         }
         return []
     } catch (error) {
-        console.log(error)
+        console.log(error);
         return []
     }
 }
+
 const JadwalPage = async () => {
     const dataJadwal = await getJadwal()
     const dataKereta = await getKereta()
@@ -57,7 +54,6 @@ const JadwalPage = async () => {
             <span className="text-sm text-slate-500">
                 Halaman ini memuat daftar jadwal kereta yang tersedia
             </span>
-
             <AddSchedule trains={dataKereta} />
             <div className="my-3">
                 {

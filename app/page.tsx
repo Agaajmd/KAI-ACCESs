@@ -11,53 +11,44 @@ const LoginPage = () => {
   const [password, setPassword] = useState<string>("")
 
   const router = useRouter()
-
   const handleSubmit = async (e: FormEvent) => {
     try {
       e.preventDefault()
-      const url = `/auth`
-      const requestData = {
+
+      const response: any = await axiosInstance.post('/auth', {
         username,
         password
-      }
-      // hit endpoint
-      const response: any = await axiosInstance.post(url, requestData)
-      if (response.data.succes === false)  {
-        const message = response.data.message
-        toast(
-          message,{
-            containerId: `toastLogin`, type: "warning"
-          }
-        )
-      } else {
-        const message = response.data.message
-        const token = response.data.token
-        const role = response.data.role
+      })
 
-        // store token in cookie
-        storeCookie(`token`, token)
-        
-        toast(
-          message,{
-            containerId: `toastLogin`, type: "success"
-          }
-        )
-        
-        if(role === `ADMIN`) {
-          setTimeout(
-            () => router.replace(`/karyawan/kereta`),
-            1000
-          )
-        } else  {
-          setTimeout(
-            () => router.replace(`/pelanggan/schedule`),
-            1000
-          )
-        }
+      if (response.data.success === false) {
+        return toast(response.data.message, {
+          type: 'warning',
+          containerId: 'toastLogin'
+        })
       }
+
+      storeCookie('token', response.data.token)
+
+      toast(response.data.message, {
+        containerId: 'toastLogin',
+        type: 'success',
+      })
+
+      if (response.data.role === 'ADMIN') {
+        setTimeout(() => router.replace('/karyawan/kereta'), 1000)
+      } else {
+        setTimeout(
+          () => router.replace(`/pelanggan/schedule`),
+          1000
+        )
+      }
+
     } catch (error) {
       console.log(error)
-      toast(`Something went wrong`, {containerId: `toastLogin`, type: "error"})
+      toast('some thing went wrong', {
+        containerId: 'toastLogin',
+        type: 'error',
+      })
     }
   }
   return (
