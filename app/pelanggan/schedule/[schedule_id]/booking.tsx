@@ -91,7 +91,7 @@ const Booking = (myProp: props) => {
                     containerId: `toastBook`,
                     type: `success`
                 })
-                router.replace(`/pelanggan/jadwal`)
+                router.replace(`/pelanggan/schedule`)
             }
         } catch (error) {
             console.log(error)
@@ -129,7 +129,7 @@ const Booking = (myProp: props) => {
             <button
                 type="button"
                 onClick={() => handleSave()}
-                className="w-full mt-4 p-3 bg-green-600 hover:bg-green-500 text-white rounded-lg font-semibold shadow-md transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+                className="w-full mt-4 p-2 bg-green-600 hover:bg-green-500 text-white rounded-lg font-semibold shadow-md transition duration-300 ease-in-out transform hover:scale-70 active:scale-95">
                 🎫 Pesan Sekarang
             </button>
 

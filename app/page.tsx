@@ -52,41 +52,42 @@ const LoginPage = () => {
     }
   }
   return (
-    <div className="flex justify-center items-center w-screen h-screen bg-gradient-to-r from-blue-400 to-indigo-600">
+    <div className="flex justify-center items-center w-screen h-screen bg-gradient-to-r from-blue-500 to-purple-700">
       <ToastContainer containerId="toastLogin" position="top-center" autoClose={3000} />
-      <form onSubmit={handleSubmit} className="w-96 p-8 bg-white shadow-lg rounded-2xl border border-gray-200">
-        <h1 className="text-3xl font-bold text-center text-indigo-700 mb-6">Welcome Back</h1>
+      <form onSubmit={handleSubmit} className="w-96 p-8 bg-white shadow-2xl rounded-2xl border border-gray-200">
+        <h1 className="text-3xl font-bold text-center text-purple-700 mb-6">Welcome Back</h1>
 
         <div className="mb-6">
-          <label className="block text-sm font-semibold text-gray-600 mb-2">Username</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">Username</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-indigo-300 focus:outline-none"
+            className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-purple-400 focus:outline-none"
             required
           />
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-semibold text-gray-600 mb-2">Password</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 border rounded-lg shadow-sm focus:ring focus:ring-indigo-300 focus:outline-none"
+            className="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-purple-400 focus:outline-none"
             required
           />
         </div>
 
         <button
           type="submit"
-          className="w-full py-3 text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-all shadow-md hover:shadow-lg"
+          className="w-full py-3 text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-all shadow-md hover:shadow-lg"
         >
           Login
         </button>
       </form>
     </div>
+
 
   )
 }

@@ -47,24 +47,23 @@ const JadwalPage = async () => {
     const dataJadwal = await getJadwal()
     const dataKereta = await getKereta()
     return (
-        <div className="w-full p-5 bg-white">
-            <h1 className="text-xl font-semibold">
-                Data Jadwal
-            </h1>
-            <span className="text-sm text-slate-500">
-                Halaman ini memuat daftar jadwal kereta yang tersedia
-            </span>
-            <AddSchedule trains={dataKereta} />
-            <div className="my-3">
-                {
-                    dataJadwal.map((jadwal, index) => (
-                        <Schedule
-                            key={`keyJadwal-${index}`}
-                            item={jadwal} />
-                    ))
-                }
+        <div className="w-full p-8 bg-gray-100 min-h-screen flex justify-center">
+            <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-5xl">
+                <h1 className="text-2xl font-bold text-gray-800">Data Jadwal</h1>
+                <p className="text-md text-gray-600">Halaman ini memuat daftar jadwal kereta yang tersedia</p>
+
+                <div className="mb-6 flex justify-end">
+                    <AddSchedule trains={dataKereta} />
+                </div>
+
+                <div className="my-4 space-y-4">
+                    {dataJadwal.map((jadwal, index) => (
+                        <Schedule key={`keyJadwal-${index}`} item={jadwal} />
+                    ))}
+                </div>
             </div>
         </div>
+
     )
 }
 export default JadwalPage

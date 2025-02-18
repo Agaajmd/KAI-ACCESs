@@ -41,7 +41,7 @@ const JadwalPage = async (myProps: props) => {
 
     return (
         <div className="w-full p-3 bg-white">
-            <div className="bg-blue-700 w-full rounded-md shadow-md">
+            <div className="bg-gradient-to-r from-blue-500 to-indigo-800 w-full rounded-md shadow-md">
                 <h1 className="text-white p-3 text-xl font-bold">
                     Pemesanan Tiket Kereta Api
                 </h1>

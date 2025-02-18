@@ -78,10 +78,10 @@ const AddSchedule = (myProp: props) => {
     return (
         <div>
             <ToastContainer containerId={`toastAddJadwal`} />
-            <button className="px-4 py-2 rounded-md text-white bg-green-500 hover:bg-green-600"
+            <button className="px-5 py-2.5 rounded-lg bg-lime-600 hover:bg-lime-500 text-white shadow-md transition-all"
                 type="button"
                 onClick={() => openModal()}>
-                Tambah Jadwal Kereta
+                Tambah Jadwal
             </button>
             <Modal isShow={show}>
                 <form onSubmit={handleSubmit}>

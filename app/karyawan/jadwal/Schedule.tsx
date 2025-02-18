@@ -17,47 +17,39 @@ const showType = (date: string) => {
 }
 const Schedule = async (myProps: Props) => {
     return (
-        <div className="flex flex-wrap w-full border rounded-md shadow-md my-2">
-            <div className="w-full md:w-3/12 p-3 flex flex-col">
-                <small className="text-xs font-semibold text-sky-700">
-                    Berangkat Dari
-                </small>
-                <strong>{myProps.item.departured_location}</strong>
-                <small className="text-xs font-semibold text-sky-700">
-                    Waktu Keberangkatan
-                </small>
-                <strong>{showType(myProps.item.departured_time)}</strong>
-            </div>
-            <div className="w-full md:w-3/12 p-3 flex flex-col">
-                <small className="text-xs font-semibold text-sky-700">
-                    Tiba Di
-                </small>
-                <strong>{myProps.item.arrived_location}</strong>
-                <small className="text-xs font-semibold text-sky-700">
-                    Waktu Kedatangan
-                </small>
-                <strong>{showType(myProps.item.arrived_time)}</strong>
-            </div>
-            <div className="w-full md:w-4/12 p-3  flex flex-col">
-                <small className="text-xs font-semibold text-sky-700">
-                    Unit Kereta
-                </small>
-                <strong>{myProps.item.train_details.name}</strong>
-                <small className="text-xs font-semibold text-sky-700">
-                    Price
-                </small>
-                <strong>{myProps.item.price.toLocaleString(`en-US`, { style: `currency`, currency: `IDR` })}</strong>
-            </div>
-            <div className="w-full md:w-2/12 p-3 gap-2 flex flex-col">
-                <small className="text-sm font-medium">
-                    Opsi
-                </small>
-                <div className="flex gap-2 items-center">
-                    <EditSchedule item={myProps.item} />
-                    <DeleteSchedule schedule={myProps.item} />
+        <div className="w-full border rounded-xl shadow-lg bg-white p-4 my-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                <div className="p-4 border-r md:border-r-2 border-gray-300">
+                    <small className="text-sm font-semibold text-sky-700 uppercase">Berangkat Dari</small>
+                    <p className="text-lg font-bold">{myProps.item.departured_location}</p>
+                    <small className="text-sm font-semibold text-sky-700 uppercase">Waktu Keberangkatan</small>
+                    <p className="text-md font-medium text-gray-700">{showType(myProps.item.departured_time)}</p>
+                </div>
+
+                <div className="p-4 border-r md:border-r-2 border-gray-300">
+                    <small className="text-sm font-semibold text-sky-700 uppercase">Tiba Di</small>
+                    <p className="text-lg font-bold">{myProps.item.arrived_location}</p>
+                    <small className="text-sm font-semibold text-sky-700 uppercase">Waktu Kedatangan</small>
+                    <p className="text-md font-medium text-gray-700">{showType(myProps.item.arrived_time)}</p>
+                </div>
+
+                <div className="p-4 border-r md:border-r-2 border-gray-300">
+                    <small className="text-sm font-semibold text-sky-700 uppercase">Unit Kereta</small>
+                    <p className="text-lg font-bold">{myProps.item.train_details.name}</p>
+                    <small className="text-sm font-semibold text-sky-700 uppercase">Harga</small>
+                    <p className="text-md font-medium text-green-600">{myProps.item.price.toLocaleString(`en-US`, { style: `currency`, currency: `IDR` })}</p>
+                </div>
+
+                <div className="p-4 flex flex-col justify-center items-center">
+                    <small className="text-sm font-medium text-gray-600">Opsi</small>
+                    <div className="flex gap-3 mt-2">
+                        <EditSchedule item={myProps.item} />
+                        <DeleteSchedule schedule={myProps.item} />
+                    </div>
                 </div>
             </div>
         </div>
+
     )
 }
 export default Schedule

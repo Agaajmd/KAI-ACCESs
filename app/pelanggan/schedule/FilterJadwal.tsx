@@ -25,7 +25,7 @@ const FilterJadwal = ({ departuredLocation, arrivedLocation }: props) => {
     }, [departuredLocation, arrivedLocation]);
 
     return (
-        <div className="bg-gradient-to-r from-blue-500 to-blue-700 shadow-lg rounded-lg p-8 max-w-full mx-auto text-white">
+        <div className="bg-gradient-to-r from-blue-500 to-indigo-800 shadow-lg rounded-lg p-8 max-w-full mx-auto text-white">
             <div className="flex flex-col md:flex-row gap-6 w-full">
                 <div className="flex-1">
                     <label htmlFor="departured_location" className="block font-semibold mb-2 text-lg">Stasiun Asal</label>
@@ -53,7 +53,7 @@ const FilterJadwal = ({ departuredLocation, arrivedLocation }: props) => {
             <button
                 type="button"
                 onClick={handleSearch}
-                className="w-full mt-6 px-8 py-4 rounded-md bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold text-lg transition flex items-center justify-center">
+                className="w-full mt-6 px-8 py-4 rounded-md bg-white hover:bg-gray-200 text-gray-900 font-semibold text-lg transition flex items-center justify-center">
                 🔍 Cari Jadwal
             </button>
         </div>

@@ -77,7 +77,7 @@ const AddKereta = () => {
             <button type="button"
                 onClick={() => openModal()}
                 className="px-4 py-2 rounded-md bg-lime-600 hover:bg-lime-400 text-white">
-                Tambah data kereta
+                Tambah kereta
             </button>
             <Modal isShow={show}>
                 <form onSubmit={e => handleSubmit(e)}>
